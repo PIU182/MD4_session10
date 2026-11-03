@@ -1,0 +1,14 @@
+### Check stock before
+GET http://localhost:8082/api/v1/medicines/1
+
+### Checkout - publishes event keyed by medicineId
+POST http://localhost:8081/api/v1/orders/checkout
+Content-Type: application/json
+
+{
+  "medicineId": 1,
+  "quantity": 2
+}
+
+### Check stock after asynchronous consumer
+GET http://localhost:8082/api/v1/medicines/1
